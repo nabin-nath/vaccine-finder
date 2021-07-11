@@ -4,11 +4,11 @@ import { Doughnut } from 'react-chartjs-2'
 export default function DoughnutChart(props) {
 
     const data = {
-        labels: ['Confirmed', 'Recovered', 'Active', 'Death'],
+        labels: ['Confirmed', 'Recovered', 'Death', 'Active'],
         datasets: [
             {
                 label: 'Covid data of India',
-                data: [props.total, props.recovered, props.active, props.death],
+                data: [props.total, props.recovered, props.death, props.active],
                 backgroundColor: [
                     'rgba(255,99,132,1)',
                     'rgba(54,162,235,1)',

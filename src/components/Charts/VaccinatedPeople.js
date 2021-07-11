@@ -4,14 +4,14 @@ import { Doughnut } from 'react-chartjs-2'
 export default function VaccinatedPeople(props) {
 
     const data = {
-        labels: ['Vaccinated Population', 'Total Population'],
+        labels: ['Vaccinated Population', 'Left Population'],
         datasets: [
             {
                 label: 'Vaccination data of India',
-                data: [props.current, props.total],
+                data: [props.current, `${props.total - props.current}`],
                 backgroundColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54,162,235,1)',
+                    'rgba(101, 210, 146, 1)',
+                    'rgba(255,99,132,1)'
                 ]
             }
         ]
