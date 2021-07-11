@@ -5,6 +5,11 @@ import CenterInfo from './CenterInfo';
 import Container from '@material-ui/core/Container'
 import Masonry from 'react-masonry-css'
 
+import Card from '@material-ui/core/Card'
+import CardHeader from '@material-ui/core/CardHeader'
+import CardContent from '@material-ui/core/CardContent'
+import Typography from '@material-ui/core/Typography'
+
 const useStyles = makeStyles({
     field: {
         marginTop: 20,
@@ -38,8 +43,14 @@ export default function Pincode() {
             fetch(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${val}&date=${today}`)
                 .then((res) => res.json())
                 .then((data) => {
-                    setCenter(data.sessions)
-                    setFoundCenter(true)
+                    setCenter([])
+                    if (data.sessions.length !== 0) {
+                        setCenter(data.sessions)
+                        setFoundCenter(true)
+                    }
+                    // console.log(data.sessions)
+
+
                 })
                 .catch((e) => console.log(e));
         }
@@ -58,6 +69,11 @@ export default function Pincode() {
         700: 1
     };
 
+    const breakpoints1 = {
+        default: 1,
+        1100: 1,
+        700: 1
+    };
 
     return (
 
@@ -86,7 +102,34 @@ export default function Pincode() {
                             </div>
                         ))}
                     </Masonry>
-                </Container> : null
+                </Container> : <Container>
+                    <Masonry
+                        breakpointCols={breakpoints1}
+                        className="my-masonry-grid"
+                        columnClassName="my-masonry-grid_column">
+                        <div>
+                            <Card elevation={1} style={{ backgroundColor: 'lightblue' }}>
+                                <CardHeader
+                                    title="No Vaccination Center is available for booking"
+                                    subheader="*Either enter a valid pin or there is no vaccination center on the entered pincode"
+                                />
+                                <CardContent>
+                                    <Typography variant="h6" color="textSecondary">
+                                        Note:
+                                    </Typography>
+                                    <Typography variant="p" color="textSecondary">
+                                        On-site registration and vaccination services are now available.
+                                    </Typography><br></br>
+                                    <br></br>
+                                    <Typography variant="p" color="textSecondary">
+                                        Slots are updated by state vaccination centers and private hospitals everyday at 8AM, 12PM, 4PM & 8PM.
+                                    </Typography>
+                                </CardContent>
+                            </Card>
+
+                        </div>
+                    </Masonry>
+                </Container>
 
             }
 

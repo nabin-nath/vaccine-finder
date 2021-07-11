@@ -8,6 +8,11 @@ import CenterInfo from './CenterInfo';
 import Container from '@material-ui/core/Container'
 import Masonry from 'react-masonry-css'
 
+import Card from '@material-ui/core/Card'
+import CardHeader from '@material-ui/core/CardHeader'
+import CardContent from '@material-ui/core/CardContent'
+import Typography from '@material-ui/core/Typography'
+
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -76,14 +81,26 @@ export default function State() {
             .then((data) => {
                 setCenter([])
                 setCenter(data.sessions)
-                // console.log(data.sessions)
-            }).then(() => setIsSelected(true))
+                return data
+            }).then((data) => {
+                if (data.sessions.length == 0) {
+                    setIsSelected(false)
+                }
+                else setIsSelected(true)
+
+            })
             .catch((e) => console.log(e));
     }
 
     const breakpoints = {
         default: 3,
         1100: 2,
+        700: 1
+    };
+
+    const breakpoints1 = {
+        default: 1,
+        1100: 1,
         700: 1
     };
 
@@ -131,13 +148,36 @@ export default function State() {
                             </div>
                         ))}
                     </Masonry>
-                </Container> : null
+                </Container> :
+                <Container>
+                    <Masonry
+                        breakpointCols={breakpoints1}
+                        className="my-masonry-grid"
+                        columnClassName="my-masonry-grid_column">
+                        <div>
+                            <Card elevation={1} style={{ backgroundColor: 'lightblue' }}>
+                                <CardHeader
+                                    title="No Vaccination Center is available for booking"
+                                    subheader="*If you have selected a state and district"
+                                />
+                                <CardContent>
+                                    <Typography variant="h6" color="textSecondary">
+                                        Note:
+                                    </Typography>
+                                    <Typography variant="p" color="textSecondary">
+                                        On-site registration and vaccination services are now available.
+                                    </Typography><br></br>
+                                    <br></br>
+                                    <Typography variant="p" color="textSecondary">
+                                        Slots are updated by state vaccination centers and private hospitals everyday at 8AM, 12PM, 4PM & 8PM.
+                                    </Typography>
+                                </CardContent>
+                            </Card>
+
+                        </div>
+                    </Masonry>
+                </Container>
             }
-
-
-
-
-
         </Container>
     );
 }
