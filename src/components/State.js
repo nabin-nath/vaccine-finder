@@ -12,7 +12,7 @@ import Masonry from 'react-masonry-css'
 const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(1),
-        width: '30%',
+        width: '40%',
     },
     selectEmpty: {
         marginTop: theme.spacing(2),
@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function State() {
+
     const classes = useStyles();
     const [id, setID] = React.useState('');
     const [districtID, setDistrictId] = useState('');

@@ -72,7 +72,7 @@ export default function Home() {
                     </CardContent>
                 </Card> */}
 
-                <Card elevation={1}>
+                <Card elevation={1} style={{ paddingBottom: '10px' }}>
                     <CardHeader
                         title={countryData.country}
                         subheader="Total data"
@@ -80,7 +80,7 @@ export default function Home() {
                     <DoughnutChart active={countryData.active} recovered={countryData.recovered} death={countryData.deaths} total={countryData.cases} />
                 </Card>
 
-                <Card elevation={1}>
+                <Card elevation={1} style={{ paddingBottom: '10px' }}>
                     <CardHeader
                         title={countryData.country}
                         subheader="Today's data"
@@ -88,7 +88,7 @@ export default function Home() {
                     <DoughnutChart recovered={countryData.todayRecovered} death={countryData.todayDeaths} total={countryData.todayCases} />
                 </Card>
 
-                <Card elevation={1}>
+                <Card elevation={1} style={{ paddingBottom: '10px' }}>
                     <CardHeader
                         title={countryData.country}
                         subheader="Total vaccinated data"
