@@ -158,7 +158,9 @@ export default function Layout({ children }) {
                 <ListItem
                   button
                   key={item.text}
-                  onClick={() => history.push(item.path)}
+                  onClick={() => {
+                    history.push(item.path)
+                  }}
                   className={location.pathname == item.path ? classes.active : null}
                 >
                   <ListItemIcon>{item.icon}</ListItemIcon>
@@ -188,7 +190,9 @@ export default function Layout({ children }) {
                 <ListItem
                   button
                   key={item.text}
-                  onClick={() => history.push(item.path)}
+                  onClick={() => {
+                    history.push(item.path)
+                  }}
                   className={location.pathname == item.path ? classes.active : null}
                 >
                   <ListItemIcon>{item.icon}</ListItemIcon>
