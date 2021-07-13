@@ -91,7 +91,7 @@ export default function Home() {
 
 
     return (
-        <Container>
+        <Container style={{ marginTop: '20px' }}>
             <Masonry
                 breakpointCols={breakpoints}
                 className="my-masonry-grid"

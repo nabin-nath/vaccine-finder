@@ -77,7 +77,7 @@ export default function Pincode() {
 
     return (
 
-        <Container>
+        <Container style={{ marginTop: '20px' }}>
 
             <TextField
                 className={classes.field}

@@ -2,6 +2,7 @@
 
 body {
   margin: 0;
+  padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #f9f9f9;
@@ -20,4 +21,12 @@ body {
 }
 .my-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
   margin-bottom: 30px;
+}
+
+.leaflet-container{
+  height: 100vh;
+}
+
+.makeStyles-page-1{
+  padding: 0% !important;
 }

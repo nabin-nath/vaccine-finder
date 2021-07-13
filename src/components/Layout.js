@@ -17,6 +17,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Hidden from '@material-ui/core/Hidden';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
 
 
 
@@ -104,6 +105,11 @@ export default function Layout({ children }) {
       text: 'Pincode',
       icon: <FiberPinIcon color="secondary" />,
       path: '/pincode'
+    },
+    {
+      text: 'Near me',
+      icon: <LocationOnIcon color="secondary" />,
+      path: '/nearme'
     },
 
   ];

@@ -5,6 +5,8 @@ import { red } from '@material-ui/core/colors'
 import Layout from './components/Layout'
 import Pincode from './components/Pincode'
 import Home from './components/Home'
+import Nearme from './components/Nearme'
+
 
 const theme = createMuiTheme({
   palette: {
@@ -36,6 +38,9 @@ function App() {
             </Route>
             <Route path="/pincode">
               <Pincode />
+            </Route>
+            <Route path="/nearme">
+              <Nearme />
             </Route>
           </Switch>
         </Layout>
