@@ -25,6 +25,7 @@ body {
 
 .leaflet-container{
   height: 100vh;
+  z-index: 0;
 }
 
 .makeStyles-page-1{

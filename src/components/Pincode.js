@@ -79,17 +79,18 @@ export default function Pincode() {
 
         <Container style={{ marginTop: '20px' }}>
 
-            <TextField
-                className={classes.field}
-                id="outlined-basic"
-                type="text"
-                label="Pincode"
-                variant="outlined"
-                onChange={(e) => check(e.target.value)}
-                color='secondary'
-                required
-            />
-
+            <Container style={{ alignItems: 'center' }}>
+                <TextField
+                    className={classes.field}
+                    id="filled-basic"
+                    type="text"
+                    label="Pincode"
+                    variant="filled"
+                    onChange={(e) => check(e.target.value)}
+                    color='secondary'
+                    required
+                />
+            </Container>
             {foundCenter === true ?
                 <Container>
                     <Masonry

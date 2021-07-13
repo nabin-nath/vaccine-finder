@@ -1,6 +1,7 @@
 import '../index.css';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet'
 import { useState, useEffect } from 'react'
+import { Container } from '@material-ui/core'
 
 function Nearme() {
 
@@ -63,19 +64,22 @@ function Nearme() {
                         <b>Click on the map to go to your location</b>
                     </Popup>
                 </Marker>
-
-                {/* {center !== [] ?
-        center.map((item, index) => <Marker key={index} position={[item.lat, item.long]}>
-          <Popup>
-            <b>{item.name}</b> <br></br> {item.location}
-          </Popup>
-        </Marker>) : null
-      } */}
                 <LocationMarker />
-                <div>Click on the map to go to your location</div>
             </MapContainer>
-
-
+            <Container style={{
+                position: 'relative', top: '-890px',
+                zindex: '10',
+                borderRadius: '30px',
+                border: '2px solid black',
+                background: 'white',
+                display: 'flex',
+                width: '400px',
+                height: '50px',
+                textAlign: 'center',
+                paddingTop: '13px',
+                opacity: '0.6'
+            }}>
+                Click on the map to go to your location</Container>
         </>
     );
 }
