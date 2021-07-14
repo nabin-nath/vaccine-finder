@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 import State from './components/State'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core'
 import { red } from '@material-ui/core/colors'
