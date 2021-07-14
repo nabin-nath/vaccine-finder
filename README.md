@@ -6,7 +6,10 @@
 - [Visit the website](https://vaccine-find.netlify.app)
 
 ## Images
-![Image of HomePage](image1)
+![Image of HomePage](./public/screenshots/home.png)
+![Image of HomePage](./public/screenshots/state.png)
+![Image of HomePage](./public/screenshots/pincode.png)
+![Image of HomePage](./public/screenshots/nearme.png)
 
 ## References
 - [Datameet](https://github.com/datameet/covid19)
