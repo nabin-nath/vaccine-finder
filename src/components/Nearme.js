@@ -56,7 +56,7 @@ function Nearme() {
         <>
             <MapContainer center={[28.6139, 77.2090]} zoom={12} scrollWheelZoom={true}>
                 <TileLayer
-                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                    attribution='<b>Click on the map to go to your location</b>'
                     url="https://api.maptiler.com/maps/streets/256/{z}/{x}/{y}.png?key=pBK9k3W2Nui7X94H2P1S"
                 />
                 <Marker position={[28.6139, 77.2090]}>
@@ -66,20 +66,6 @@ function Nearme() {
                 </Marker>
                 <LocationMarker />
             </MapContainer>
-            <Container style={{
-                position: 'relative', top: '-890px',
-                zindex: '10',
-                borderRadius: '30px',
-                border: '2px solid black',
-                background: 'white',
-                display: 'flex',
-                width: '400px',
-                height: '50px',
-                textAlign: 'center',
-                paddingTop: '13px',
-                opacity: '0.6'
-            }}>
-                Click on the map to go to your location</Container>
         </>
     );
 }
