@@ -9,7 +9,6 @@ import Card from '@material-ui/core/Card'
 import CardHeader from '@material-ui/core/CardHeader'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
-import { NotificationsOffOutlined } from '@material-ui/icons';
 import DirectionsWalkIcon from '@material-ui/icons/DirectionsWalk';
 
 const useStyles = makeStyles({
@@ -68,7 +67,6 @@ export default function Pincode() {
             setFoundCenter(false);
             setNotFound(false)
         }
-
 
     }
 
