@@ -7,9 +7,9 @@
 
 ## Images
 ![Image of HomePage](./public/screenshots/home.png)
-![Image of HomePage](./public/screenshots/state.png)
-![Image of HomePage](./public/screenshots/pincode.png)
-![Image of HomePage](./public/screenshots/nearme.png)
+![Image of StatePage](./public/screenshots/state.png)
+![Image of PincodePage](./public/screenshots/pincode.png)
+![Image of NearmePage](./public/screenshots/nearme.png)
 
 ## References
 - [Datameet](https://github.com/datameet/covid19)

@@ -7,6 +7,8 @@ import Select from '@material-ui/core/Select';
 import CenterInfo from './CenterInfo';
 import Container from '@material-ui/core/Container'
 import Masonry from 'react-masonry-css'
+import DirectionsWalkIcon from '@material-ui/icons/DirectionsWalk';
+
 
 import Card from '@material-ui/core/Card'
 import CardHeader from '@material-ui/core/CardHeader'
@@ -34,6 +36,7 @@ export default function State() {
     const [districts, setDistricts] = useState([])
     const [isSelected, setIsSelected] = useState(false);
     const [center, setCenter] = useState([]);
+    const [notFound, setNotFound] = useState(false)
 
     useEffect(() => {
         fetch('https://cdn-api.co-vin.in/api/v2/admin/location/states')
@@ -83,8 +86,10 @@ export default function State() {
                 setCenter(data.sessions)
                 return data
             }).then((data) => {
-                if (data.sessions.length == 0) {
+                setNotFound(false)
+                if (data.sessions.length === 0) {
                     setIsSelected(false)
+                    setNotFound(true)
                 }
                 else setIsSelected(true)
 
@@ -136,6 +141,25 @@ export default function State() {
                     </Select>
                 </FormControl>
             </Container>
+            {notFound === true ?
+                <Container>
+                    <Masonry
+                        breakpointCols={breakpoints1}
+                        className="my-masonry-grid"
+                        columnClassName="my-masonry-grid_column">
+                        <div>
+                            <Card elevation={1} style={{ backgroundColor: '#e57373' }}>
+                                <CardHeader
+                                    title="No Vaccination Center is available for booking"
+                                    subheader="*If you have selected a state and district"
+                                />
+                            </Card>
+
+                        </div>
+                    </Masonry>
+                </Container>
+                : null
+            }
             {isSelected === true ?
                 <Container>
                     <Masonry
@@ -157,20 +181,16 @@ export default function State() {
                         <div>
                             <Card elevation={1} style={{ backgroundColor: 'lightblue' }}>
                                 <CardHeader
-                                    title="No Vaccination Center is available for booking"
-                                    subheader="*If you have selected a state and district"
+                                    title="On-site registration and vaccination services are now available."
+                                    subheader="Slots are updated by state vaccination centers and private hospitals everyday at 8AM, 12PM, 4PM & 8PM."
                                 />
                                 <CardContent>
                                     <Typography variant="h6" color="textSecondary">
                                         Note:
                                     </Typography>
                                     <Typography variant="p" color="textSecondary">
-                                        On-site registration and vaccination services are now available.
+                                        <DirectionsWalkIcon />Walk-in available at all vaccination centers – both Government and Private centers for all people aged 18 years or above. For slot availability and timing of walk-ins, please contact the vaccination center directly. However, it is recommended that you book your appointment online for convenience.
                                     </Typography><br></br>
-                                    <br></br>
-                                    <Typography variant="p" color="textSecondary">
-                                        Slots are updated by state vaccination centers and private hospitals everyday at 8AM, 12PM, 4PM & 8PM.
-                                    </Typography>
                                 </CardContent>
                             </Card>
 

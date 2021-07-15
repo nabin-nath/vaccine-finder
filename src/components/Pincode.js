@@ -9,6 +9,8 @@ import Card from '@material-ui/core/Card'
 import CardHeader from '@material-ui/core/CardHeader'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
+import { NotificationsOffOutlined } from '@material-ui/icons';
+import DirectionsWalkIcon from '@material-ui/icons/DirectionsWalk';
 
 const useStyles = makeStyles({
     field: {
@@ -24,6 +26,7 @@ export default function Pincode() {
     const [pin, setPin] = useState('');
     const [center, setCenter] = useState([]);
     const [foundCenter, setFoundCenter] = useState(false);
+    const [notFound, setNotFound] = useState(false)
 
 
     function check(val) {
@@ -44,9 +47,14 @@ export default function Pincode() {
                 .then((res) => res.json())
                 .then((data) => {
                     setCenter([])
+                    setNotFound(false)
                     if (data.sessions.length !== 0) {
                         setCenter(data.sessions)
                         setFoundCenter(true)
+
+                    }
+                    else {
+                        setNotFound(true)
                     }
                     // console.log(data.sessions)
 
@@ -58,6 +66,7 @@ export default function Pincode() {
         else {
             setCenter([]);
             setFoundCenter(false);
+            setNotFound(false)
         }
 
 
@@ -91,6 +100,26 @@ export default function Pincode() {
                     required
                 />
             </Container>
+            {notFound === true ?
+                <Container>
+                    <Masonry
+                        breakpointCols={breakpoints1}
+                        className="my-masonry-grid"
+                        columnClassName="my-masonry-grid_column">
+                        <div>
+                            <Card elevation={1} style={{ backgroundColor: '#e57373' }}>
+                                <CardHeader
+                                    title="No Vaccination Center is available for booking"
+                                    subheader="*Either enter a valid pin or there is no vaccination center on the entered pincode"
+                                />
+                            </Card>
+
+                        </div>
+                    </Masonry>
+                </Container>
+                : null
+
+            }
             {foundCenter === true ?
                 <Container>
                     <Masonry
@@ -103,7 +132,8 @@ export default function Pincode() {
                             </div>
                         ))}
                     </Masonry>
-                </Container> : <Container>
+                </Container> :
+                <Container>
                     <Masonry
                         breakpointCols={breakpoints1}
                         className="my-masonry-grid"
@@ -111,20 +141,16 @@ export default function Pincode() {
                         <div>
                             <Card elevation={1} style={{ backgroundColor: 'lightblue' }}>
                                 <CardHeader
-                                    title="No Vaccination Center is available for booking"
-                                    subheader="*Either enter a valid pin or there is no vaccination center on the entered pincode"
+                                    title="On-site registration and vaccination services are now available."
+                                    subheader="Slots are updated by state vaccination centers and private hospitals everyday at 8AM, 12PM, 4PM & 8PM."
                                 />
                                 <CardContent>
                                     <Typography variant="h6" color="textSecondary">
                                         Note:
                                     </Typography>
                                     <Typography variant="p" color="textSecondary">
-                                        On-site registration and vaccination services are now available.
+                                        <DirectionsWalkIcon />Walk-in available at all vaccination centers – both Government and Private centers for all people aged 18 years or above. For slot availability and timing of walk-ins, please contact the vaccination center directly. However, it is recommended that you book your appointment online for convenience.
                                     </Typography><br></br>
-                                    <br></br>
-                                    <Typography variant="p" color="textSecondary">
-                                        Slots are updated by state vaccination centers and private hospitals everyday at 8AM, 12PM, 4PM & 8PM.
-                                    </Typography>
                                 </CardContent>
                             </Card>
 
