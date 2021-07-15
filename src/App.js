@@ -6,6 +6,7 @@ import Layout from './components/Layout'
 import Pincode from './components/Pincode'
 import Home from './components/Home'
 import Nearme from './components/Nearme'
+import NotFound from './components/NotFound'
 
 
 const theme = createMuiTheme({
@@ -41,6 +42,9 @@ function App() {
             </Route>
             <Route path="/nearme">
               <Nearme />
+            </Route>
+            <Route path="*">
+              <NotFound />
             </Route>
           </Switch>
         </Layout>
