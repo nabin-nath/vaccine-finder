@@ -70,9 +70,14 @@ export default function Home() {
                     temp4.push(ans[i].key[0].substring(0, 10))
                     // console.log(ans[i].key[0].substring(0,10))
 
-                    temp1.push(ans[i + 1].value - ans[i + 1 - 4].value)
-                    temp2.push(ans[i + 2].value - ans[i + 2 - 4].value)
-                    temp3.push(ans[i + 3].value - ans[i + 3 - 4].value)
+                    if (ans[i + 1].value - ans[i + 1 - 4].value < 0 || ans[i + 2].value - ans[i + 2 - 4].value < 0 || ans[i + 3].value - ans[i + 3 - 4].value < 0) {
+                        continue
+                    }
+                    else {
+                        temp1.push(ans[i + 1].value - ans[i + 1 - 4].value)
+                        temp2.push(ans[i + 2].value - ans[i + 2 - 4].value)
+                        temp3.push(ans[i + 3].value - ans[i + 3 - 4].value)
+                    }
                 }
                 setCured(temp1)
                 setDeath(temp2)

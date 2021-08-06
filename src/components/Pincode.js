@@ -124,8 +124,8 @@ export default function Pincode() {
                         breakpointCols={breakpoints}
                         className="my-masonry-grid"
                         columnClassName="my-masonry-grid_column">
-                        {center.map(item => (
-                            <div key={item.center_id}>
+                        {center.map((item, index) => (
+                            <div key={index}>
                                 <CenterInfo name={item.name} vaccine={item.vaccine} address={item.address} available={item.available_capacity} availableDose1={item.available_capacity_dose1} availableDose2={item.available_capacity_dose2} agelimit={item.min_age_limit} />
                             </div>
                         ))}
