@@ -62,11 +62,11 @@ export default function Home() {
                 let temp2 = []
                 let temp3 = []
                 let temp4 = []
-                temp4.push(ans[0].key[0].substring(0, 10))
-                temp1.push(ans[0 + 1].value)
-                temp2.push(ans[0 + 2].value)
-                temp3.push(ans[0 + 3].value)
-                for (let i = 4; i < ans.length; i += 4) {
+                // temp4.push(ans[0].key[0].substring(0, 10))
+                // temp1.push(ans[0 + 1].value)
+                // temp2.push(ans[0 + 2].value)
+                // temp3.push(ans[0 + 3].value)
+                for (let i = 480; i < ans.length; i += 4) {
                     temp4.push(ans[i].key[0].substring(0, 10))
                     // console.log(ans[i].key[0].substring(0,10))
 
