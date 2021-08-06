@@ -37,6 +37,8 @@ export default function State() {
     const [isSelected, setIsSelected] = useState(false);
     const [center, setCenter] = useState([]);
     const [notFound, setNotFound] = useState(false)
+    const [loading, setLoading] = useState(false)
+
 
     useEffect(() => {
         fetch('https://cdn-api.co-vin.in/api/v2/admin/location/states')
@@ -72,6 +74,7 @@ export default function State() {
     }
 
     const getCenters = (districtID) => {
+        setLoading(true)
         var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');
         var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -83,6 +86,7 @@ export default function State() {
             .then((res) => res.json())
             .then((data) => {
                 setCenter([])
+                setLoading(false)
                 setCenter(data.sessions)
                 return data
             }).then((data) => {
@@ -141,6 +145,7 @@ export default function State() {
                     </Select>
                 </FormControl>
             </Container>
+            {loading ? <Container><h2>Loading centers....</h2></Container> : null}
             {notFound === true ?
                 <Container>
                     <Masonry

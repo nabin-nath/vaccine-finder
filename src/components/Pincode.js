@@ -26,6 +26,7 @@ export default function Pincode() {
     const [center, setCenter] = useState([]);
     const [foundCenter, setFoundCenter] = useState(false);
     const [notFound, setNotFound] = useState(false)
+    const [loading, setLoading] = useState(false)
 
 
     function check(val) {
@@ -33,6 +34,7 @@ export default function Pincode() {
         if (reg.test(val) && val.toString().length === 6) {
             // console.log(true)
             setPin(val);
+            setLoading(true)
 
             var today = new Date();
             var dd = String(today.getDate()).padStart(2, '0');
@@ -47,6 +49,7 @@ export default function Pincode() {
                 .then((data) => {
                     setCenter([])
                     setNotFound(false)
+                    setLoading(false)
                     if (data.sessions.length !== 0) {
                         setCenter(data.sessions)
                         setFoundCenter(true)
@@ -85,7 +88,6 @@ export default function Pincode() {
     return (
 
         <Container style={{ marginTop: '20px' }}>
-
             <Container style={{ alignItems: 'center' }}>
                 <TextField
                     className={classes.field}
@@ -98,6 +100,7 @@ export default function Pincode() {
                     required
                 />
             </Container>
+            {loading ? <Container><h2>Loading centers....</h2></Container> : null}
             {notFound === true ?
                 <Container>
                     <Masonry
