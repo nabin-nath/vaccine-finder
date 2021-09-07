@@ -1,7 +1,7 @@
 
 # Vaccine Finder
 
-- Vaccine Finder is a react app that shows COVID vaccination centers near you.
+- Vaccine Finder is a react app that shows COVID vaccination centers near you(Only for INDIA).
 - Find vaccination centers by ```State``` ```District``` ```PINCODE``` ```Your Location```
 - [Visit the website](https://vaccine-find.netlify.app)
 
