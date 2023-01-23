@@ -117,10 +117,10 @@ export default function Home() {
 
   const getSubheader = (active, recovered, death, total) => {
     return {
-      active: `Active: ${active}`,
-      recovered: `Recovered: ${recovered}`,
-      death: `Death: ${death}`,
-      total: `Total: ${total}`,
+      Active: `: ${active}`,
+      Recovered: `: ${recovered}`,
+      Death: `: ${death}`,
+      Total: `: ${total}`,
     };
   };
 
