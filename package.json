@@ -2,6 +2,7 @@
   "name": "vaccine-finder",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://cdn-api.co-vin.in",
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
@@ -22,9 +23,9 @@
     "react-map-gl": "^6.1.16",
     "react-masonry-css": "^1.0.14",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.2",
+    "react-scripts": "^5.0.1",
     "use-places-autocomplete": "^1.9.3",
-    "victory": "^35.9.0",
+    "victory": "^37.3.5",
     "web-vitals": "^1.1.0"
   },
   "scripts": {
@@ -45,6 +46,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "gh-pages": "^3.2.3"
+    "gh-pages": "^6.3.0"
   }
 }

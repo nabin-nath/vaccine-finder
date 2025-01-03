@@ -44,7 +44,7 @@ export default function Pincode() {
             today = dd + '-' + mm + '-' + yyyy;
 
 
-            fetch(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${val}&date=${today}`)
+            fetch(`/api/v2/appointment/sessions/public/findByPin?pincode=${val}&date=${today}`)
                 .then((res) => res.json())
                 .then((data) => {
                     setCenter([])

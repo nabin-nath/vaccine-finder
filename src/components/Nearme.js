@@ -30,9 +30,12 @@ function Nearme() {
         if (position !== null && got === false) {
             setGot(true)
             console.log("fetch is called")
-            fetch(`https://cdn-api.co-vin.in/api/v2/appointment/centers/public/findByLatLong?lat=${position.lat}&long=${position.lng}`)
+            fetch(`/api/v2/appointment/centers/public/findByLatLong?lat=${position.lat}&long=${position.lng}`)
                 .then((res) => res.json())
-                .then((data) => setCenter(data.centers))
+                .then((data) => {
+                    // console.log(data)
+                    setCenter(data.centers)
+                })
                 .catch((e) => console.log(e))
         }
 
@@ -42,7 +45,7 @@ function Nearme() {
                     <Popup><b>You are here</b></Popup>
                 </Marker>
                 {
-                    center !== [] ?
+                    center.length > 0 ?
                         center.map((item, index) => <Marker
                             key={index}
                             position={[item.lat, item.long]} >

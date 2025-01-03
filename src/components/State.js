@@ -41,7 +41,7 @@ export default function State() {
 
 
     useEffect(() => {
-        fetch('https://cdn-api.co-vin.in/api/v2/admin/location/states')
+        fetch('/api/v2/admin/location/states')
             .then((res) => res.json())
             .then((data) => {
                 return setStates(data.states)
@@ -60,7 +60,7 @@ export default function State() {
 
     const getDistricts = (districtId) => {
         // console.log('i am here and the id is:', districtId);
-        fetch(`https://cdn-api.co-vin.in/api/v2/admin/location/districts/${districtId}`)
+        fetch(`/api/v2/admin/location/districts/${districtId}`)
             .then((res) => res.json()
             ).then((data) => {
                 setDistricts(data.districts)
@@ -82,7 +82,7 @@ export default function State() {
 
         today = dd + '-' + mm + '-' + yyyy;
         // console.log(today, districtID);
-        fetch(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id=${districtID}&date=${today}`)
+        fetch(`/api/v2/appointment/sessions/public/findByDistrict?district_id=${districtID}&date=${today}`)
             .then((res) => res.json())
             .then((data) => {
                 setCenter([])
